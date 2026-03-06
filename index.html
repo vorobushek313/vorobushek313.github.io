@@ -1,17 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>My Website</title>
+    <title>ПОЙМАНА СВАГА</title>
+    <style>
+        /* Убираем отступы и делаем html/body на всю высоту экрана */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Убираем прокрутку */
+        }
+
+        /* Растягиваем изображение на всю ширину и высоту без сохранения пропорций */
+        img {
+            position: fixed; /* Фиксируем изображение относительно viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: fill; /* Растягиваем изображение без сохранения пропорций */
+            cursor: pointer; /* Добавляем указатель "рука" для картинки */
+        }
+    </style>
 </head>
 <body>
-    <h1>Опаааааааааааааааааа</h1>
+    <!-- Картинка, по клику на которую будет играть звук -->
+    <img src="scr/image1.jpg" alt="пенч пранкер" id="playButton">
+
+    <!-- Аудио элемент с атрибутом loop для бесконечного повтора -->
+    <audio id="audioPlayer" loop>
+        <source src="scr/sound1.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает элемент audio.
+    </audio>
+
+    <script>
+        // Получаем ссылки на элементы
+        const audio = document.getElementById('audioPlayer');
+        const image = document.getElementById('playButton');
+
+        // Добавляем обработчик события click для картинки
+        image.addEventListener('click', function() {
+            if (audio.paused) {
+                // Если аудио остановлено, запускаем его
+                audio.play();
+            } else {
+                // Если аудио играет, ставим на паузу
+                audio.pause();
+            }
+        });
+    </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sound on Link Click</title>
