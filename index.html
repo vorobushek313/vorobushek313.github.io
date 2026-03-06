@@ -33,12 +33,12 @@
             event.preventDefault(); // Отменяем стандартный переход
 
             // Устанавливаем источник звукового файла
-            sound.src = 'https://raw.githubusercontent.com/<your-repo>/main/sound.mp3';
+            sound.src = 'https://raw.githubusercontent.com/vorobushek313.github.io/main/sound.mp3';
             
             // Начинаем воспроизводить звук
             sound.play().then(() => {
                 // После завершения воспроизведения переходим по ссылке
-                window.location.href = '<your-git-url>';
+                window.location.href = 'vorobushek313.github.io';
             }).catch(error => console.error("Ошибка воспроизведения:", error));
         });
     </script>
