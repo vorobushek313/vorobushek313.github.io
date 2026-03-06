@@ -15,32 +15,3 @@
 <head>
     <meta charset="UTF-8">
     <title>Sound on Link Click</title>
-</head>
-<body>
-    <!-- Создаем ссылку -->
-    <a href="#" id="githubLink">Перейти на GitHub</a>
-    
-    <!-- Скрытый элемент audio для проигрывания звука -->
-    <audio id="soundFile" src="" preload="auto"></audio>
-
-    <script>
-        // Получаем элементы DOM
-        const link = document.getElementById('githubLink');
-        const sound = document.getElementById('soundFile');
-        
-        // Устанавливаем обработчик события клика
-        link.addEventListener('click', function(event){
-            event.preventDefault(); // Отменяем стандартный переход
-
-            // Устанавливаем источник звукового файла
-            sound.src = 'https://raw.githubusercontent.com/vorobushek313.github.io/main/sound.mp3';
-            
-            // Начинаем воспроизводить звук
-            sound.play().then(() => {
-                // После завершения воспроизведения переходим по ссылке
-                window.location.href = 'vorobushek313.github.io';
-            }).catch(error => console.error("Ошибка воспроизведения:", error));
-        });
-    </script>
-</body>
-</html>
