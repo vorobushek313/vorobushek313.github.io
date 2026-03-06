@@ -17,24 +17,30 @@
     <title>Sound on Link Click</title>
 </head>
 <body>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Воспроизведение аудио по кнопке</title>
-</head>
-<body>
-    <button onclick="playAudio()">Нажмите, чтобы послушать музыку</button>
-
-    <audio id="audioPlayer" controls hidden></audio>
+    <!-- Создаем ссылку -->
+    <a href="#" id="githubLink">Перейти на GitHub</a>
+    
+    <!-- Скрытый элемент audio для проигрывания звука -->
+    <audio id="soundFile" src="" preload="auto"></audio>
 
     <script>
-        function playAudio() {
-            var player = document.getElementById("audioPlayer");
-            player.src = "https://screenapp.io/app/v/m6rjzgL0jK"; // замените на реальный URL-аудиофайла
-            player.load();
-            player.play();
-        }
+        // Получаем элементы DOM
+        const link = document.getElementById('githubLink');
+        const sound = document.getElementById('soundFile');
+        
+        // Устанавливаем обработчик события клика
+        link.addEventListener('click', function(event){
+            event.preventDefault(); // Отменяем стандартный переход
+
+            // Устанавливаем источник звукового файла
+            sound.src = 'https://raw.githubusercontent.com/<your-repo>/main/sound.mp3';
+            
+            // Начинаем воспроизводить звук
+            sound.play().then(() => {
+                // После завершения воспроизведения переходим по ссылке
+                window.location.href = '<your-git-url>';
+            }).catch(error => console.error("Ошибка воспроизведения:", error));
+        });
     </script>
 </body>
 </html>
